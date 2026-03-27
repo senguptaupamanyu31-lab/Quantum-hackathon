@@ -1,7 +1,6 @@
 # Quantum-hackathon
 
-This repository contains projects made during the Q-Hack hackathon. It was a level based hackathon with different problem statements for each level. :contentReference[oaicite:0]{index=0}
-
+This repository contains projects made during the Q-Hack hackathon. It was a level based hackathon with different problem statements for each level. 
 ---
 
 # 📌 Level 1: Design of a 4-bit Ripple Carry Adder using Quantum Circuits
