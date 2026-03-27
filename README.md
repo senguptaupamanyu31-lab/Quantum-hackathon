@@ -1,6 +1,7 @@
-# Quantum-hackathon
+# Quantum Hackathon 🚀
 
-This repository contains projects made during the Q-Hack hackathon. It was a level based hackathon with different problem statements for each level. 
+This repository contains projects developed during the Q-Hack Quantum Computing Hackathon, which was structured as a multi-level challenge. Each level focuses on progressively deeper concepts in quantum computing and circuit design. :contentReference[oaicite:0]{index=0}
+
 ---
 
 # 📌 Level 1: Design of a 4-bit Ripple Carry Adder using Quantum Circuits
@@ -15,8 +16,8 @@ Unlike classical circuits, quantum circuits must:
 
 ## ⚙️ What We Built
 We implemented a 4-bit Ripple Carry Adder using:
-- CNOT (CX) gates → for XOR operations  
-- Toffoli (CCX) gates → for AND (carry generation)  
+- CNOT (CX) gates → XOR operations  
+- Toffoli (CCX) gates → AND (carry generation)  
 
 Each bit addition is handled using a quantum full adder block, and carry propagates from one stage to the next — forming a ripple carry structure.
 
@@ -31,17 +32,19 @@ Each bit addition is handled using a quantum full adder block, and carry propaga
 | Temp | q17–q20 | Ancilla qubits |
 
 ## 🔁 Working Principle
+
 Sum: S = A ⊕ B ⊕ Cin  
 Carry: Cout = (A · B) ⊕ (Cin · (A ⊕ B))
 
 Steps:
-- Compute A ⊕ B using CNOT
-- Compute sum using XOR with carry-in
-- Generate carry using Toffoli gates
-- Propagate carry
-- Uncompute ancilla qubits
+- Compute A ⊕ B using CNOT gates  
+- Compute sum using XOR with carry-in  
+- Generate carry using Toffoli gates  
+- Propagate carry  
+- Uncompute ancilla qubits  
 
 ## 🧪 Example
+
 A = 1011 (11)  
 B = 0110 (6)  
 Output = 10001 (17)
@@ -51,23 +54,24 @@ Output = 10001 (17)
 # 📌 Level 2: Smart City Emergency Priority System using Multiplexer (MUX)
 
 ## 🧠 Problem Statement
-Multiple sensors detect:
-- Fire
-- Gas
-- Intrusion
-- Medical emergency
 
-Only one signal can be transmitted → need priority selection.
+In a smart city environment, multiple sensors monitor:
+- Fire Detection  
+- Gas Leakage  
+- Intrusion Detection  
+- Medical Emergency  
+
+Due to limited bandwidth, only one signal can be transmitted.
 
 ## ⚙️ Approach
 
-### Classical Priority:
+### Classical Priority
 Fire > Gas > Intrusion > Medical
 
-### Quantum Implementation:
-- CX gates
-- CCX gates
-- MCX gates
+### Quantum Implementation
+- CX gates  
+- CCX gates  
+- MCX gates  
 
 ## 🔢 Qubit Mapping
 
@@ -80,7 +84,8 @@ Fire > Gas > Intrusion > Medical
 | q4 | Output |
 
 ## 🧪 Key Idea
-Superposition used to evaluate all inputs simultaneously.
+
+Superposition allows simultaneous evaluation of all input combinations.
 
 ---
 
@@ -91,7 +96,7 @@ Superposition used to evaluate all inputs simultaneously.
 ψ₁ = (|0⟩ + |1⟩) / √2  
 ψ₂ = (|0⟩ − |1⟩) / √2  
 
-Claim: "Both states look similar on Bloch Sphere"
+Claim: *“Both states look similar on the Bloch Sphere”*
 
 ## 🔍 Results
 
@@ -102,19 +107,18 @@ Claim: "Both states look similar on Bloch Sphere"
 
 ## 🎯 Conclusion
 
-They are **NOT similar**  
-They differ by phase → opposite directions
+The states are **NOT similar**.  
+They differ by phase and lie in opposite directions on the Bloch sphere.
 
 ---
 
-# 📌 Level 4: Adaptive Eavesdropping Detection (BB84)
+# 📌 Level 4: Adaptive Eavesdropping Detection (BB84 Protocol)
 
 ## 🧠 Problem Statement
 
 In real quantum communication:
-
-- Errors come from noise AND eavesdropping  
-- Eve adapts attack to remain hidden  
+- Errors arise from noise and eavesdropping  
+- Eve adapts her attack to remain undetected  
 
 Goal:
 Detect Eve even when she hides within noise.
@@ -124,7 +128,7 @@ Detect Eve even when she hides within noise.
 ## 🎯 Objective
 
 - Simulate BB84 protocol  
-- Add noise  
+- Introduce noise  
 - Add adaptive attacker  
 - Detect using statistical methods  
 - Visualize in real time  
@@ -133,15 +137,13 @@ Detect Eve even when she hides within noise.
 
 ## ⚙️ Approach
 
-Flow:
+System Flow:
 
 Alice → Eve → Noise → Bob → Compare → Detect  
 
-Key idea:
-
+Key Idea:
 - Noise → random errors  
 - Eve → structured disturbance  
 - Detection → statistical deviation  
 
 ---
-
