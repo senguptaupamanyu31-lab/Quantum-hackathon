@@ -112,38 +112,131 @@ They differ by phase and lie in opposite directions on the Bloch sphere.
 
 ---
 
-# 📌 Level 4: Adaptive Eavesdropping Detection (BB84 Protocol)
+
+# # 📌 Level 4 BB84 Protocol with Noise & Adaptive Eavesdropping Detection
+
+
 
 ## 🧠 Problem Statement
 
-In real quantum communication:
-- Errors arise from noise and eavesdropping  
-- Eve adapts her attack to remain undetected  
+In practical quantum communication, errors arise not only from eavesdropping but also from channel noise.
 
-Goal:
-Detect Eve even when she hides within noise.
+You are tasked with designing a system that can distinguish between natural noise and a stealthy eavesdropper (Eve) who attempts to remain undetected.
 
 ---
 
-## 🎯 Objective
+## 🎯 Task
 
-- Simulate BB84 protocol  
-- Introduce noise  
-- Add adaptive attacker  
-- Detect using statistical methods  
-- Visualize in real time  
+Implement a modified BB84 protocol where:
+
+- The quantum channel has intrinsic noise  
+- Eve performs an adaptive attack:
+  - She intercepts only a fraction of qubits  
+  - She adjusts her attack rate based on observed error levels  
+
+---
+
+## 🧭 Approach
+
+To solve this problem, we model the communication process using the BB84 quantum key distribution protocol and extend it to include realistic conditions.
+
+### 1. BB84 Simulation
+
+- Alice generates random bits and bases (Z and X)  
+- Qubits are prepared based on these values  
+- Bob measures the qubits using randomly chosen bases  
+
+Only the cases where Alice and Bob use the same basis are retained (sifting process).
 
 ---
 
-## ⚙️ Approach
+### 2. Modeling Channel Noise
 
-System Flow:
+To simulate real-world conditions:
 
-Alice → Eve → Noise → Bob → Compare → Detect  
-
-Key Idea:
-- Noise → random errors  
-- Eve → structured disturbance  
-- Detection → statistical deviation  
+- Random bit flips are introduced during transmission  
+- This represents imperfections in the quantum channel  
+- Noise produces **random, unbiased errors**
 
 ---
+
+### 3. Modeling Adaptive Eavesdropper (Eve)
+
+Eve performs an intercept-resend attack:
+
+- She intercepts only a fraction of qubits  
+- Measures them in a random basis  
+- Resends the measured state  
+
+Adaptive behavior:
+
+- If observed error is low → Eve increases attack rate  
+- If observed error is high → Eve reduces attack rate  
+
+This allows Eve to **hide within the noise level**
+
+---
+
+### 4. Error Analysis
+
+After transmission:
+
+- Alice and Bob compare a subset of their bits  
+- The error rate is computed as the fraction of mismatched bits  
+
+---
+
+## 🔍 Solution Strategy
+
+A simple threshold-based detection (error > noise) is not sufficient because Eve adapts her behavior.
+
+Instead, we use **statistical detection over multiple rounds**:
+
+### Key Observations
+
+- Noise introduces **random fluctuations**  
+- Eve introduces a **consistent bias in error rate**  
+
+---
+
+### Detection Method
+
+We track:
+
+- Error rate over multiple rounds  
+- Average error  
+- Variance (standard deviation)
+
+Then apply:
+
+If:
+average_error > noise_level + threshold
+
+→ Eavesdropping detected
+
+---
+
+## 🎯 Final Insight
+
+Even when Eve tries to remain undetected by adjusting her attack rate, she introduces subtle but consistent deviations from expected noise behavior.
+
+These deviations become detectable through statistical analysis over time.
+
+---
+
+## 🔥 Conclusion
+
+This approach demonstrates that:
+
+- Quantum communication can detect eavesdropping even in noisy environments  
+- Adaptive attackers can hide temporarily but cannot eliminate statistical signatures  
+- Reliable detection requires analyzing trends rather than single measurements  
+
+---
+
+## 💡 Key Takeaway
+
+Noise is random.  
+Eavesdropping is structured.  
+
+By observing patterns over time, we can distinguish between the two.
